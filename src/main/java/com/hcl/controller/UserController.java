@@ -17,7 +17,6 @@ import com.hcl.services.UserService;
 public class UserController {
 	@Autowired
 	UserService userService;
-	
 
 	Logger logger = LoggerFactory.getLogger(UserController.class);
 
@@ -29,13 +28,9 @@ public class UserController {
 
 	@PostMapping(path = "/login")
 	String submitLogin(@RequestParam(name = "username") String username,@RequestParam(name = "password") String password) {
-
 		logger.info("post mapping /submitLogin");
-		
 		  if(userService.verifyLogin(username,password)) {
 		  	return "user/successful"; }
-		 
-		
 		return "user/index";
 		
 

@@ -15,16 +15,14 @@ import com.hcl.services.UserService;
 import com.hcl.services.UserServiceImpl;
 
 @DataJpaTest
-//@AutoConfigureTestDatabase(replace = Replace.NONE)
 class ServiceTest {
 
 	static User user;
 
 	@TestConfiguration
 	static class ServiceImplTestContextConfiguration {
-
 		@Bean
-		public UserService employeeService() {
+		public UserService userService() {
 			return new UserServiceImpl();
 		}
 	}
@@ -43,7 +41,6 @@ class ServiceTest {
 		service.save(user);
 	User found = service.findByUsername("Tommy").get();
 		assertEquals(user, found);
-
 	}
 
 	@Test
